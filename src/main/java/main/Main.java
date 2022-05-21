@@ -48,8 +48,9 @@ public class Main {
 
             // SHORTEN THE GIVEN URL
             URLShortner urls = new URLShortner(5, "www.shortenedurl.com/");
+            String shortenedUrl = urls.shortenURL(str);
             System.out.println("URL:" + str + "\tShortened: "
-                    + urls.shortenURL(str) + "\tExpanded: "
+                    + shortenedUrl + "\tExpanded: "
                     + urls.expandURL(urls.shortenURL(str)));
 
             // GENERATE QR CODE
@@ -76,7 +77,7 @@ public class Main {
             // DISPLAY QR CODE ON WINDOW
             ShowWindow shwWindow = new ShowWindow();
             shwWindow.createJFrame();
-            shwWindow.displayQRCode(path);
+            shwWindow.displayQRCode(path, urlList[randomNumber], shortenedUrl);
             Thread.sleep(10000);
             shwWindow.disposeJFrame();
         }
