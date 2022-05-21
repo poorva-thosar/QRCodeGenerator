@@ -1,4 +1,4 @@
-package qrcode;
+package URL;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -20,7 +20,7 @@ public class URLShortner {
     private int keyLength; // the key length in URL defaults to 8
 
     // Default Constructor
-    URLShortner() {
+    public URLShortner() {
         keyMap = new HashMap<String, String>();
         valueMap = new HashMap<String, String>();
         myRand = new Random();
@@ -42,7 +42,7 @@ public class URLShortner {
 
     // Constructor which enables you to define tiny URL key length and base URL
     // name
-    URLShortner(int length, String newDomain) {
+    public URLShortner(int length, String newDomain) {
         this();
         this.keyLength = length;
         if (!newDomain.isEmpty()) {
@@ -127,22 +127,5 @@ public class URLShortner {
             }
         }
         return key;
-    }
-
-    // test the code
-    public static void main(String args[]) {
-        URLShortner u = new URLShortner(5, "www.shortenedurl.com/");
-        String urls[] = { "www.google.com/", "www.google.com",
-                "http://www.yahoo.com", "www.yahoo.com/", "www.amazon.com",
-                "www.amazon.com/page1.php", "www.amazon.com/page2.php",
-                "www.flipkart.in", "www.rediff.com", "www.techmeme.com",
-                "www.techcrunch.com", "www.lifehacker.com", "www.icicibank.com",
-                "https://www.example.com/generate-qr-code" };
-
-        for (int i = 0; i < urls.length; i++) {
-            System.out.println("URL:" + urls[i] + "\tTiny: "
-                    + u.shortenURL(urls[i]) + "\tExpanded: "
-                    + u.expandURL(u.shortenURL(urls[i])));
-        }
     }
 }

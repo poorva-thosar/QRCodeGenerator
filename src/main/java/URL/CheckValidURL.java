@@ -1,4 +1,4 @@
-package qrcode;
+package URL;
 
 import java.net.URL;
 

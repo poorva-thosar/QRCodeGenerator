@@ -1,9 +1,12 @@
 package qrcode;
 
+import URL.CheckValidURL;
+import URL.URLShortner;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import window.ShowWindow;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,7 +18,7 @@ public class Main {
     public static void main(String args[]) throws WriterException, IOException, NotFoundException
     {
         //data that we want to store in the QR code
-        String str = "https://www.example.com/generate-qr-code";
+        String str = "https://www.example.com/generate-qr-code/34";
 
         // CHECK VALID URL
         CheckValidURL checkvalidurl = new CheckValidURL();
@@ -55,6 +58,10 @@ public class Main {
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
         ReadQRCode readqrcode = new ReadQRCode();
         System.out.println("Data stored in the QR Code is: "+ readqrcode.readQRcode(path, charset, hintMap));
+
+        // DISPLAY QR CODE ON WINDOW
+        ShowWindow shwWindow = new ShowWindow();
+        shwWindow.displayQRCode(path);
     }
 
 }
