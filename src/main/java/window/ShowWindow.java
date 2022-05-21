@@ -5,10 +5,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class ShowWindow {
-    public void displayQRCode(String path) {
-        JFrame frame = new JFrame();
+    JFrame frame;
+
+    public void createJFrame() {
+        this.frame = new JFrame();
+    }
+
+    public void disposeJFrame() {
+        frame.dispose();
+    }
+
+    public void displayQRCode(String path) throws InterruptedException {
         ImageIcon icon = new ImageIcon(path);
         JLabel label = new JLabel(icon);
+        label.setIcon(icon);
         frame.add(label);
         frame.setDefaultCloseOperation
                 (JFrame.EXIT_ON_CLOSE);

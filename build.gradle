@@ -26,7 +26,7 @@ dependencies {
     )
 }
 
-mainClassName = 'qrcode.Main'
+mainClassName = 'main.Main'
 
 gradle.projectsEvaluated {
     tasks.withType(JavaCompile) {
